@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+    <title>Submit an Inquiry - [Your Name]</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="page-container">
+        
+        <main class="form-container">
+            <a href="index.html" class="back-link">&larr; Back to Portfolio</a>
+            
+            <h1 class="form-title">Project Submission</h1>
+
+            <form name="inquiry" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/contact.html">
+                <p>Please provide details on your project. Submissions are reviewed for fit and availability. I will respond if the inquiry is a good match.</p>
+
+                <input type="hidden" name="form-name" value="inquiry" />
+                
+                <div style="display:none;">
+                    <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="project-type">Service of Interest</label>
+                    <select id="project-type" name="project-type">
+                        <option value="web-development">Web Development</option>
+                        <option value="ui-ux-design">UI/UX Design</option>
+                        <option value="branding">Branding</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Project Brief</label>
+                    <textarea id="message" name="message" rows="6" placeholder="Please describe the project scope, timeline, and budget..." required></textarea>
+                </div>
+                
+                <div class="form-submit-wrapper">
+                    <button type="submit" class="footer-button">Submit Inquiry</button>
+                </div>
+
+            </form>
+
+            <div data-netlify-form-success="true">
+                <h1 class="form-title">Thank You.</h1>
+                <p>Your submission has been received. I will respond if the inquiry is a good match.</p>
+                <div class="form-submit-wrapper">
+                    <a href="index.html" class="footer-button">Back to Portfolio</a>
+                </div>
+            </div>
+
+        </main>
+    </div>
+</body>
+</html>
