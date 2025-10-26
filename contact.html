@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Submit an Inquiry - [Your Name]</title>
     <link rel="stylesheet" href="style.css">
     
@@ -18,7 +18,7 @@
             
             <h1 class="form-title">Project Submission</h1>
 
-            <form name="inquiry" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="#modal-success">
+            <form id="contact-form" name="inquiry" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/contact.html?success=true">
                 <p>Please provide details on your project. Submissions are reviewed for fit and availability. I will respond if the inquiry is a good match.</p>
 
                 <input type="hidden" name="form-name" value="inquiry" />
@@ -55,20 +55,34 @@
                 <div class="form-submit-wrapper">
                     <button type="submit" class="footer-button">Submit Inquiry</button>
                 </div>
+
             </form>
+
+            <div id="success-modal" class="modal-overlay">
+                <div class="modal-content">
+                    <h1 class="form-title">Thank You.</h1>
+                    <p>Your submission has been received. I will respond if the inquiry is a good match.</p>
+                    <div class="form-submit-wrapper">
+                        <a href="index.html" class="footer-button">Back to Portfolio</a>
+                    </div>
+                    <a href="contact.html" class="modal-close">&times;</a>
+                </div>
+            </div>
+
         </main>
     </div>
 
-    <div id="modal-success" class="modal-overlay">
-        <div class="modal-content">
-            <h1 class="form-title">Thank You.</h1>
-            <p>Your submission has been received. I will respond if the inquiry is a good match.</p>
-            <div class="form-submit-wrapper">
-                <a href="#" class="footer-button">Back to Portfolio</a>
-            </div>
-            <a href="#" class="modal-close">&times;</a>
-        </div>
-    </div>
-
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('success')) {
+                const form = document.getElementById('contact-form');
+                const modal = document.getElementById('success-modal');
+                
+                if (form) form.style.display = 'none';
+                if (modal) modal.style.display = 'flex'; // Use 'flex' to activate the centering styles
+            }
+        });
+    </script>
 </body>
 </html>
