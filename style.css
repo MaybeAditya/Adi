@@ -369,8 +369,83 @@ a:hover { color: var(--accent-color); }
     cursor: pointer;
 }
 
-/* ======== ★★★ NEW RULE ADDED ★★★ ======== */
 /* Hide the Netlify success message by default */
 [data-netlify-form-success] {
     display: none;
+}
+
+
+/* ==================================
+  ★★★ NEW MODAL POP-UP STYLES ★★★ 
+==================================
+*/
+
+/* The full-screen overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Hidden by default */
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* This is the magic: :target makes the modal visible when the URL hash matches its ID */
+.modal-overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* The modal pop-up box */
+.modal-content {
+    position: relative;
+    background: #111;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 4rem;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+    /* Animation */
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+/* This makes the box "pop" in */
+.modal-overlay:target .modal-content {
+    transform: scale(1);
+}
+
+/* Styling the 'p' tag inside the modal to match your form */
+.modal-content p {
+    font-size: 1.1rem;
+    color: #a0a0a0;
+    margin-bottom: 3rem;
+    max-width: 600px;
+}
+
+/* The close 'x' button */
+.modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    color: #a0a0a0;
+    font-size: 2rem;
+    line-height: 1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+    color: var(--text-color);
 }
