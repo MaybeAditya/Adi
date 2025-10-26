@@ -368,3 +368,9 @@ a:hover { color: var(--accent-color); }
 .footer-button {
     cursor: pointer;
 }
+
+/* ======== ★★★ NEW RULE ADDED ★★★ ======== */
+/* Hide the Netlify success message by default */
+[data-netlify-form-success] {
+    display: none;
+}
