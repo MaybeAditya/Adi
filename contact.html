@@ -63,7 +63,7 @@
                     <h1 class="form-title">Thank You.</h1>
                     <p>Your submission has been received. I will respond if the inquiry is a good match.</p>
                     <div class="form-submit-wrapper">
-                        <a href="index.html" class="footer-button">Back to Portfolio</a>
+                        <a href="contact.html" class="footer-button">Close</a>
                     </div>
                     <a href="contact.html" class="modal-close">&times;</a>
                 </div>
@@ -75,12 +75,17 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const urlParams = new URLSearchParams(window.location.search);
+            
             if (urlParams.has('success')) {
                 const form = document.getElementById('contact-form');
                 const modal = document.getElementById('success-modal');
                 
-                if (form) form.style.display = 'none';
-                if (modal) modal.style.display = 'flex'; // Use 'flex' to activate the centering styles
+                if (form) {
+                    form.style.display = 'none'; // Hide the form
+                }
+                if (modal) {
+                    modal.classList.add('is-visible'); // Show the modal
+                }
             }
         });
     </script>
